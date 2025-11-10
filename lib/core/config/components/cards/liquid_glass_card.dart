@@ -2,20 +2,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import '../theme/liquid_glass_theme.dart';
 
-class LiquidGlassForm extends StatelessWidget {
+class LiquidGlassCard extends StatelessWidget {
   final Widget child;
   final double borderRadius;
   final EdgeInsets padding;
-  final Color? color;
-  final Color? borderColor;
 
-  const LiquidGlassForm({
+  const LiquidGlassCard({
     super.key,
     required this.child,
+    this.borderRadius = 20,
     this.padding = const EdgeInsets.all(16),
-    this.borderRadius = 16,
-    this.color,
-    this.borderColor,
   });
 
   @override
@@ -29,12 +25,9 @@ class LiquidGlassForm extends StatelessWidget {
         child: Container(
           padding: padding,
           decoration: BoxDecoration(
-            color: color ?? t.backgroundColor,
+            color: t.backgroundColor,
             borderRadius: BorderRadius.circular(borderRadius),
-            border: Border.all(
-              color: borderColor ?? t.borderColor,
-              width: t.borderWidth,
-            ),
+            border: Border.all(color: t.borderColor, width: t.borderWidth),
           ),
           child: child,
         ),

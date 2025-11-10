@@ -1,20 +1,43 @@
-// --- FILE: lib/core/config/app_theme.dart ---
 import 'package:flutter/material.dart';
+import 'package:mobile_template/core/config/app_colors.dart';
+import 'package:mobile_template/core/config/components/theme/liquid_glass_theme.dart';
 
 class AppTheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
-    primarySwatch: Colors.green,
-    scaffoldBackgroundColor: Colors.white,
-    appBarTheme: const AppBarTheme(elevation: 0),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
+    primaryColor: AppColors.primary,
+    scaffoldBackgroundColor: AppColors.lightGreen100,
+    colorScheme: const ColorScheme.light(
+      primary: AppColors.primary,
+      secondary: AppColors.accent,
+      surface: AppColors.lightGreen200,
+      background: AppColors.lightGreen100,
+    ),
+    extensions: [
+      const LiquidGlassTheme(
+        blur: 20,
+        backgroundColor: AppColors.lightGreen400,
+        borderColor: AppColors.lightGreen600,
+      ),
+    ],
   );
 
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    primarySwatch: Colors.green,
-    scaffoldBackgroundColor: const Color(0xFF121212),
-    appBarTheme: const AppBarTheme(elevation: 0),
-    visualDensity: VisualDensity.adaptivePlatformDensity,
+    primaryColor: AppColors.darkGreen500,
+    scaffoldBackgroundColor: AppColors.darkGreen1000,
+    colorScheme: const ColorScheme.dark(
+      primary: AppColors.darkGreen500,
+      secondary: AppColors.darkGreen300,
+      surface: AppColors.darkGreen800,
+      background: AppColors.darkGreen1000,
+    ),
+    extensions: [
+      const LiquidGlassTheme(
+        blur: 20,
+        backgroundColor: AppColors.darkGreen900,
+        borderColor: AppColors.darkGreen700,
+      ),
+    ],
   );
 }
